@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>FDB demo - Patient (edit)</title>
+    <!-- scripts and plugins -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="scripts/moment.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="scripts/bootstrap-datetimepicker.min.js"></script>
+    <script src="scripts/classie.js"></script>
+    <script src="scripts/cbpAnimatedHeader.js"></script>
+    <script src="scripts/wow.min.js"></script>
+    <script src="scripts/snackbar.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="css/material.css">
+    <link rel="stylesheet" href="css/snackbar.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link href="css/app.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/44b3f582de.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-inverse navbar-fixed-top navbar-small">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="index.html"><img src="./content/fdb-logo.png" /></a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Joe User <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Sign Out</a></li>
+                  <li><a href="#">Reset Password</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Help</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+    </header>
+
+    <div class="container-fluid patients">
+      <section class="row text-center">
+        <div class="container">
+          <div class="col-md-offset-2 col-md-8 patient-edit text-left wow slideInLeft" data-wow-duration=".2s">
+            <div>
+              <div class="row">
+                <div class="col-xs-6 leftsmush">
+                  <a href="patients.html"><i class="fa fa-arrow-left fa-2x backarrow" aria-hidden="true"></i></a>
+                  <div class="top-title">Edit Patient</div>
+                </div>
+                <div class="col-xs-6 pull-right tags">
+                  <div>
+                    <div class="addtag">+ tag</div>
+                    <div class="tag">ADDI<i class="fa fa-times delete-tag" aria-hidden="true" data-toggle="tooltip" title="remove"></i></div>
+                    <div class="tag">PGX<i class="fa fa-times delete-tag" aria-hidden="true" data-toggle="tooltip" title="remove"></i></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="top-line"></hr>
+            <form>
+              <div class="row formfields">
+                <div class="col-xs-3 text-center">
+                  <img src="content/user-f-1.jpg" class="img-circle"></img>
+                  <br />
+                  <a href="#" class="edit-image-link">edit photo</a>
+                </div>
+                <div class="col-xs-9">
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <label for="firstName">First Name</label>
+                      <input type="text" class="form-control" id="firstName" value="Leah"></input>
+                    </div>
+                    <div class="col-xs-6">
+                      <label for="lastName">Last Name</label>
+                      <input type="text" class="form-control" id="lastName" value="Perry"></input>
+                    </div>
+                  </div>
+                  <br />
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <label for="birthDate">Birth Date</label>
+                      <div class='input-group date' id='birthDate'>
+                        <input type='text' class="form-control" format="L" value="5/2/1983" />
+                        <span class="input-group-addon">
+                          <span class="fa fa-calendar"></span>
+                        </span>
+                      </div>
+                      <script type="text/javascript">
+                        $(function () {
+                          $('#birthDate').datetimepicker({
+                              format: 'L'
+                          });
+                        });
+                      </script>
+                    </div>
+                    <div class="col-xs-6">
+                      <label for="gender">Gender</label>
+                      <select class="form-control" value="Female" id="gender">
+                        <option>Female</option>
+                        <option>Male</option>
+                      </select>
+                    </div>
+                  </div>
+                  <br />
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <label for="race">Race</label>
+                      <select class="form-control" value="Caucasian" id="race">
+                        <option>Caucasian</option>
+                        <option>Hispanic</option>
+                        <option>African-American</option>
+                        <option>Other</option>
+                      </select>
+                    </div>
+                    <div class="col-xs-6">
+                      <label for="ethnicity">Ethnicity</label>
+                      <select class="form-control" value="Germanic" id="ethnicity">
+                        <option>Germanic</option>
+                        <option>Hispanic</option>
+                        <option>African-American</option>
+                        <option>Other</option>
+                      </select>
+                    </div>
+                  </div>
+                  <br />
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <label for="state">State</label>
+                      <select class="form-control" value="Pennsylvania" id="state">
+                        <option>Pennsylvania</option>
+                        <option>Indiana</option>
+                        <option>Ohio</option>
+                        <option>Michigan</option>
+                      </select>
+                    </div>
+                    <div class="col-xs-6">
+                      <label for="city">City</label>
+                      <select class="form-control" value="Philadelphia" id="city">
+                        <option>Philadelphia</option>
+                        <option>Pittsburgh</option>
+                        <option>Allentown</option>
+                      </select>
+                    </div>
+                  </div>
+                  <br />
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <label for="weight">Weight</label>
+                      <div id="weight">
+                        <input type="text" class="form-control frm wt" id="weight" value="137"></input>
+                        <div class="htlbl">lbs</div>
+                      </div>
+                    </div>
+                    <div class="col-xs-6">
+                      <label for="height">Height</label>
+                      <div id="height">
+                        <input type="text" class="form-control frm ht" id="feet" value="5"></input>
+                        <div class="htlbl">feet</div>
+                        <input type="text" class="form-control frm ht" id="inches" value="6"></input>
+                        <div class="htlbl">inches</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <hr></hr>
+            <div class="collection">
+              <div class="collection-title">Medications</div>
+              <div class="row item">
+                <div class="col-xs-8 item-name">Warfarin Oral 4 mg every day</div>
+                <div class="col-xs-4 pull-right">
+                  <div class="item-delete pull-right"><i class="fa fa-trash-o fa-lg" data-toggle="tooltip" title="remove"></i></div>
+                  <div class="item-dates pull-right">1/13/2014 - 2/15/2014</div>
+                </div>
+              </div>
+              <div class="row item">
+                <div class="col-xs-8 item-name">Diazepam Oral 5 mg 2 times per day</div>
+                <div class="col-xs-4 pull-right">
+                  <div class="item-delete pull-right"><i class="fa fa-trash-o fa-lg" data-toggle="tooltip" title="remove"></i></div>
+                  <div class="item-dates pull-right">1/13/2014 - present</div>
+                </div>
+              </div>
+              <button class="btn btn-success btn-xs addbutton">Add</button>
+            </div>
+            <hr></hr>
+            <div class="collection">
+              <div class="collection-title">Problems</div>
+              <div class="row item">
+                <div class="col-xs-8 item-name">Carpal Tunnel Syndrome</div>
+                <div class="col-xs-4 pull-right">
+                  <div class="item-delete pull-right"><i class="fa fa-trash-o fa-lg" data-toggle="tooltip" title="remove"></i></div>
+                  <div class="item-dates pull-right">11/17/2011 - present</div>
+                </div>
+              </div>
+              <button class="btn btn-success btn-xs addbutton">Add</button>
+            </div>
+            <hr></hr>
+            <div class="collection">
+              <div class="collection-title">Allergies</div>
+              <div class="row item">
+                <div class="col-xs-8 item-name">Penicillins</div>
+                <div class="col-xs-4 pull-right">
+                  <div class="item-delete pull-right"><i class="fa fa-trash-o fa-lg" data-toggle="tooltip" title="remove"></i></div>
+                  <div class="item-dates pull-right">8/14/1990 - present</div>
+                </div>
+              </div>
+              <button class="btn btn-success btn-xs addbutton">Add</button>
+            </div>
+            <hr></hr>
+            <div class="collection">
+              <div class="collection-title">Lab Results</div>
+              <button class="btn btn-success btn-xs addbutton">Add</button>
+            </div>
+            <hr></hr>
+            <div class="collection">
+              <div class="collection-title">Genetic Findings</div>
+              <button class="btn btn-success btn-xs addbutton">Add</button>
+            </div>
+            <hr></hr>
+            <a href="patients.html"><button class="btn btn-default pull-right">Cancel</button></a>
+            <button class="btn btn-primary pull-right savebutton">Save</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="container-fluid">
+        <h1>footer</h1>
+    </footer>
+
+  </body>
+</html>

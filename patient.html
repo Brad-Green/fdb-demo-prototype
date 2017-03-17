@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>FDB demo - Patient</title>
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <link rel="stylesheet" href="css/material.css">
+    <link rel="stylesheet" href="css/snackbar.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/shCore.css">
+    <link rel="stylesheet" href="css/shThemeRDark.css">
+    <link href="css/app.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/44b3f582de.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-inverse navbar-fixed-top navbar-small">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="index.html"><img src="./content/fdb-logo.png" /></a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Joe User <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Sign Out</a></li>
+                  <li><a href="#">Reset Password</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Help</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+    </header>
+
+    <div class="container-fluid patient-page">
+      <div class="stripe wow slideInDown" data-wow-duration=".18s">
+        <row>
+          <div class="container">
+            <div class="col-xs-8">
+              <a href="patients.html"><i class="fa fa-arrow-left fa-2x backarrow"></i></a>
+              <img src="content/user-f-1.jpg" class="userpic-small"></img>
+              <div class="patient-stats">
+                <div class="top-title">Leah Perry</div>
+                <br />
+                <div class="patient-summary">female - 34 - Philadelphia PA - 5'6" - 137 lbs - caucasian/Germanic</div>
+              </div>
+              <div class="patient-stats">
+                <i class="fa fa-heart-o heart" aria-hidden="true" id="noclix" data-toggle="tooltip" title="favorite"></i>
+                <br />
+                <a href="patient-edit.html"><div class="edit-link">edit</div></a>
+              </div>
+            </div>
+            <div class="col-xs-4 pull-right tags">
+              <div>
+                <div class="addtag">+ tag</div>
+                <div class="tag">ADDI<i class="fa fa-times delete-tag" aria-hidden="true" data-toggle="tooltip" title="remove"></i></div>
+                <div class="tag">PGX<i class="fa fa-times delete-tag" aria-hidden="true" data-toggle="tooltip" title="remove"></i></div>
+              </div>
+            </div>
+          </div>
+        </row>
+      </div>
+
+      <section class="row text-center">
+        <div class="container">
+
+          <div class="col-md-4">
+            <div class="patient text-left wow slideInLeft" data-wow-duration=".2s">
+              <div class="panel-group wrap" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel">
+                  <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                      <a role="button" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Medications
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body">
+                      <div class="row item" title="1/13/2014 - 2/15/2014">
+                        <div class="col-xs-10 item-name pull-left">Warfarin Oral 4 mg every day</div>
+                        <div class="col-xs-2 pull-right">
+                          <div class="item-delete pull-right"><i class="fa fa-trash-o" data-toggle="tooltip" title="remove"></i></div>
+                        </div>
+                      </div>
+                      <div class="row item" title="1/13/2014 - present">
+                        <div class="col-xs-10 item-name">Diazepam Oral 5 mg 2 times per day</div>
+                        <div class="col-xs-2 pull-right">
+                          <div class="item-delete pull-right"><i class="fa fa-trash-o" data-toggle="tooltip" title="remove"></i></div>
+                        </div>
+                      </div>
+                      <button class="btn btn-success btn-xs addbutton">Prescribe</button>
+                    </div>
+                  </div>
+                </div>
+                <!-- end of panel -->
+                <div class="panel">
+                  <div class="panel-heading" role="tab" id="headingTwo">
+                    <h4 class="panel-title">
+                      <a role="button" data-toggle="collapse" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        Problems
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+                    <div class="panel-body">
+                      <div class="row item" title="11/17/2011 - present">
+                        <div class="col-xs-10 item-name">Carpal Tunnel Syndrome</div>
+                        <div class="col-xs-2 pull-right">
+                          <div class="item-delete pull-right"><i class="fa fa-trash-o" data-toggle="tooltip" title="remove"></i></div>
+                        </div>
+                      </div>
+                      <button class="btn btn-success btn-xs addbutton">Add</button>
+                    </div>
+                  </div>
+                </div>
+                <!-- end of panel -->
+                <div class="panel">
+                  <div class="panel-heading" role="tab" id="headingThree">
+                    <h4 class="panel-title">
+                  <a role="button" data-toggle="collapse" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                    Allergies
+                  </a>
+                </h4>
+                  </div>
+                  <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
+                    <div class="panel-body">
+                      <div class="row item" title="8/14/1990 - present">
+                        <div class="col-xs-10 item-name">Penicillins</div>
+                        <div class="col-xs-2 pull-right">
+                          <div class="item-delete pull-right"><i class="fa fa-trash-o" data-toggle="tooltip" title="remove"></i></div>
+                        </div>
+                      </div>
+                      <button class="btn btn-success btn-xs addbutton">Add</button>
+                    </div>
+                  </div>
+                </div>
+                <!-- end of panel -->
+                <div class="panel">
+                  <div class="panel-heading" role="tab" id="headingFour">
+                    <h4 class="panel-title">
+                      <a role="button" data-toggle="collapse" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                        Lab Results
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour">
+                    <div class="panel-body no-items">
+                      <div class="row item-none">
+                        <div class="col-xs-12 no-items">(none)</div>
+                      </div>
+                      <button class="btn btn-success btn-xs addbutton">Add</button>
+                    </div>
+                  </div>
+                </div>
+                <!-- end of panel -->
+                <div class="panel">
+                  <div class="panel-heading" role="tab" id="headingFive">
+                    <h4 class="panel-title">
+                      <a role="button" data-toggle="collapse" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                        Genetic Findings
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseFive" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFive">
+                    <div class="panel-body">
+                      <div class="row item-none">
+                        <div class="col-xs-12 no-items">(none)</div>
+                      </div>
+                      <button class="btn btn-success btn-xs addbutton">Add</button>
+                    </div>
+                  </div>
+                </div>
+                <!-- end of panel -->
+              </div>
+              <!-- end of accordion -->
+            </div>
+          </div>
+
+          <div class="col-md-8">
+            <div class="patient text-left wow slideInLeft" data-wow-duration=".2s">
+              <div class="screening">
+                <div class="screening-header">
+                  <div class="screening-title">Screening Alerts <span class="badge">12</span></div>
+                  <div class="showcode pull-right" title="view technical details">
+                    <i class="fa fa-chevron-left" aria-hidden="true"></i><i class="fa fa-chevron-right" aria-hidden="true"></i>
+                  </div>
+                  <div class="shown-code">
+                    <div class="codecontent">
+                      <div class="codeheader">XML code:</div>
+                      <script type="syntaxhighlighter" class="brush: xml; gutter: false; toolbar: false;">
+                        <![CDATA[
+                          <?xml version="1.0" encoding="utf-16"?>
+                          <ScreenRequest>
+                            <CallContext xmlns="http://schemas.fdbhealth.com/CC/v1_3">
+                              <CallSystemName>FDB CC Demo</CallSystemName>
+                            </CallContext>
+                            <PatientProfile xmlns="http://schemas.fdbhealth.com/CC/v1_3">
+                              <BirthDate>1975-05-13T00:00:00</BirthDate>
+                              <PatientWeight>210.00</PatientWeight>
+                              <PatientWeightUnits>Kilogram</PatientWeightUnits>
+                              <GestationalAgeInWeeks d3p1:nil="true" xmlns:d3p1="http://www.w3.org/2001/XMLSchema-instance" />
+                              <BodySurfaceArea d3p1:nil="true" xmlns:d3p1="http://www.w3.org/2001/XMLSchema-instance" />
+                              <BodySurfaceAreaUnits d3p1:nil="true" xmlns:d3p1="http://www.w3.org/2001/XMLSchema-instance" />
+                              <CreatinineClearance d3p1:nil="true" xmlns:d3p1="http://www.w3.org/2001/XMLSchema-instance" />
+                              <CreatinineClearanceLevelUnits d3p1:nil="true" xmlns:d3p1="http://www.w3.org/2001/XMLSchema-instance" />
+                              <HepaticLevel d3p1:nil="true" xmlns:d3p1="http://www.w3.org/2001/XMLSchema-instance" />
+                              <Sex>Male</Sex>
+                            </PatientProfile>
+                            <DDCScreenRequest xmlns="http://schemas.fdbhealth.com/CC/v1_3">
+                              <ProspectiveOnly>false</ProspectiveOnly>
+                              <ProxyPredictor>NoProxyPrediction</ProxyPredictor>
+                              <SeverityFilter>3</SeverityFilter>
+                            </DDCScreenRequest>
+                            <DPTScreenRequest xmlns="http://schemas.fdbhealth.com/CC/v1_3">
+                              <ProspectiveOnly>false</ProspectiveOnly>
+                              <UseDuplicateAllowance>false</UseDuplicateAllowance>
+                              <ReturnNonActionableResults>false</ReturnNonActionableResults>
+                            </DPTScreenRequest>
+                            <DDIScreenRequest xmlns="http://schemas.fdbhealth.com/CC/v1_3">
+                              <ProspectiveOnly>false</ProspectiveOnly>
+                              <SeverityFilter>9</SeverityFilter>
+                              <PerformInactiveIngredientScreening>false</PerformInactiveIngredientScreening>
+                              <UseConsumerSeverityDesc>false</UseConsumerSeverityDesc>
+                            </DDIScreenRequest>
+                            <DFIScreenRequest xmlns="http://schemas.fdbhealth.com/CC/v1_3">
+                              <ProspectiveOnly>false</ProspectiveOnly>
+                              <SignificanceFilter>3</SignificanceFilter>
+                            </DFIScreenRequest>
+                            <DAScreenRequest xmlns="http://schemas.fdbhealth.com/CC/v1_3">
+                              <ProspectiveOnly>false</ProspectiveOnly>
+                              <PerformInactiveScreening>false</PerformInactiveScreening>
+                            </DAScreenRequest>
+                            <ScreenProfile xmlns="http://schemas.fdbhealth.com/CC/v1_3">
+                              <ScreenDrugs>
+                                <ScreenDrug>
+                                  <DrugID>168743</DrugID>
+                                  <DrugConceptType>DispensableDrug</DrugConceptType>
+                                  <Prospective>false</Prospective>
+                                </ScreenDrug>
+                                <ScreenDrug>
+                                  <DrugID>476848</DrugID>
+                                  <DrugConceptType>DispensableDrug</DrugConceptType>
+                                  <Prospective>false</Prospective>
+                                </ScreenDrug>
+                                <ScreenDrug>
+                                  <DrugID>286939</DrugID>
+                                  <DrugConceptType>DispensableDrug</DrugConceptType>
+                                  <Prospective>false</Prospective>
+                                </ScreenDrug>
+                                <ScreenDrug>
+                                  <DrugID>545412</DrugID>
+                                  <DrugConceptType>DispensableDrug</DrugConceptType>
+                                  <Prospective>false</Prospective>
+                                </ScreenDrug>
+                                <ScreenDrug>
+                                  <DrugID>175363</DrugID>
+                                  <DrugConceptType>DispensableDrug</DrugConceptType>
+                                  <Prospective>false</Prospective>
+                                </ScreenDrug>
+                                <ScreenDrug>
+                                  <DrugID>202094</DrugID>
+                                  <DrugConceptType>DispensableDrug</DrugConceptType>
+                                  <Prospective>false</Prospective>
+                                </ScreenDrug>
+                                <ScreenDrug>
+                                  <DrugID>551394</DrugID>
+                                  <DrugConceptType>DispensableDrug</DrugConceptType>
+                                  <Prospective>false</Prospective>
+                                </ScreenDrug>
+                              </ScreenDrugs>
+                            </ScreenProfile>
+                          </ScreenRequest>
+                        ]]>
+                      </script>
+                    </div>
+                  </div>
+                  <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#drug-drug" aria-controls="drug-drug" role="tab" data-toggle="tab">DRUG-DRUG (3)</a></li>
+                    <li role="presentation"><a href="#duplicate-therapy" aria-controls="duplicate-therapy" role="tab" data-toggle="tab">DPT (1)</a></li>
+                    <li role="presentation"><a href="#drug-disease" aria-controls="drug-disease" role="tab" data-toggle="tab">DRUG-DISEASE (2)</a></li>
+                    <li role="presentation"><a href="#drug-food" aria-controls="drug-food" role="tab" data-toggle="tab">DRUG-FOOD (3)</a></li>
+                    <li role="presentation"><a href="#drug-allergy" aria-controls="drug-allergy" role="tab" data-toggle="tab">DRUG-ALLERGY (1)</a></li>
+                    <li role="presentation"><a href="#drug-gene" aria-controls="drug-gene" role="tab" data-toggle="tab">DRUG-GENE (2)</a></li>
+                  </ul>
+                </div>
+                <div class="screening-body">
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="drug-drug">
+                      <div class="row">
+                        <div class="col-xs-12 screenresult">
+                          <div class="screenresult-title">
+                            <div class="drug">Potassium chloride ER 8 mEq tablet</div> and <div class="drug">Extended release benztropine 2 mg tablet</div>
+                          </div>
+                          <div class="showcode pull-right" title="view technical details">
+                            <i class="fa fa-chevron-left" aria-hidden="true"></i><i class="fa fa-chevron-right" aria-hidden="true"></i>
+                          </div>
+                          <div class="shown-code">
+                            <div class="codecontent">
+                              <div class="api-title">API Call</div>
+                              <table class="table">
+                                <tr>
+                                  <td class="tabledata">Source</td>
+                                  <td class="bolded tabledata">Cloud Connector API</td>
+                                </tr>
+                                <tr>
+                                  <td class="tabledata">Service Name</td>
+                                  <td class="bolded tabledata">ScreenService.Screen</td>
+                                </tr>
+                                <tr>
+                                  <td class="tabledata">Response Time</td>
+                                  <td class="bolded tabledata">55ms</td>
+                                </tr>
+                              </table>
+                              <br />
+                              <div class="api-title">Alert Details</div>
+                              <table class="table">
+                                <tr>
+                                  <td class="tabledata">Alert Type</td>
+                                  <td class="bolded tabledata">Drug-Drug Interaction (DDI)</td>
+                                </tr>
+                                <tr>
+                                  <td class="tabledata">Severity Level</td>
+                                  <td class="bolded tabledata">Severe</td>
+                                </tr>
+                                <tr>
+                                  <td class="tabledata">Visibility</td>
+                                  <td class="bolded tabledata">Interruptive</td>
+                                </tr>
+                              </table>
+                              <br />
+                              <div class="api-title">Why am I seeing this alert?</div>
+                              <div class="reasons">
+                                This alert is visible right now because it is <div class="bolded">Severe</div> and <div class="bolded">Interruptive</div>, and your role is <div class="bolded">Hospitalist</div>.<br />
+                                You would NOT see it if its severity level was <div class="bolded">Moderate or less</div>, or if it had a visibility of <div class="bolded">Passive</div>, or your role was <div class="bolded">Pharmacist</div> or <div class="bolded">Cardiologist</div>.
+                              </div>
+                            </div>
+                          </div>
+                          <div class="screenresult-content">
+                            <p>Potassium chloride ER 8 mEq tablet,extended release and benztropine 2 mg tablet may interact based on the potential interaction between SOLID ORAL POTASSIUM TABLETS and ANTICHOLINERGICS.</p>
+                            <div class="monos">
+                              <a href="#">professional monograph</a>
+                              <a href="#">consumer monograph</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-12 screenresult">
+                          <div class="screenresult-title">
+                            <div class="drug">ASPIRIN (FOR CARDIOPROTECTION)</div> and <div class="drug">SELECTED NSAIDS</div>
+                          </div>
+                          <div class="showcode pull-right" title="view technical details">
+                            <i class="fa fa-chevron-left" aria-hidden="true"></i><i class="fa fa-chevron-right" aria-hidden="true"></i>
+                          </div>
+                          <div class="shown-code">
+                            <div class="codecontent">
+                              <div class="api-title">API Call</div>
+                              <table class="table">
+                                <tr>
+                                  <td class="tabledata">Source</td>
+                                  <td class="bolded tabledata">Cloud Connector API</td>
+                                </tr>
+                                <tr>
+                                  <td class="tabledata">Service Name</td>
+                                  <td class="bolded tabledata">ScreenService.Screen</td>
+                                </tr>
+                                <tr>
+                                  <td class="tabledata">Response Time</td>
+                                  <td class="bolded tabledata">63ms</td>
+                                </tr>
+                              </table>
+                              <br />
+                              <div class="api-title">Alert Details</div>
+                              <table class="table">
+                                <tr>
+                                  <td class="tabledata">Alert Type</td>
+                                  <td class="bolded tabledata">Drug-Drug Interaction (DDI)</td>
+                                </tr>
+                                <tr>
+                                  <td class="tabledata">Severity Level</td>
+                                  <td class="bolded tabledata">Severe</td>
+                                </tr>
+                                <tr>
+                                  <td class="tabledata">Visibility</td>
+                                  <td class="bolded tabledata">Interruptive</td>
+                                </tr>
+                              </table>
+                              <br />
+                              <div class="api-title">Why am I seeing this alert?</div>
+                              <div class="reasons">
+                                This alert is visible right now because it is <div class="bolded">Severe</div> and <div class="bolded">Interruptive</div>, and your role is <div class="bolded">Hospitalist</div>.<br />
+                                You would NOT see it if its severity level was <div class="bolded">Moderate or less</div>, or if it had a visibility of <div class="bolded">Passive</div>, or your role was <div class="bolded">Pharmacist</div> or <div class="bolded">Cardiologist</div>.
+                              </div>
+                            </div>
+                          </div>
+                          <div class="screenresult-content">
+                            <p>Aspirin 81 mg chewable tablet and naproxen sodium 275 mg tablet may interact based on the potential interaction between ASPIRIN (FOR CARDIOPROTECTION) and SELECTED NSAIDS.</p>
+                            <div class="monos">
+                              <a href="#">professional monograph</a>
+                              <a href="#">consumer monograph</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-12 screenresult">
+                          <div class="screenresult-title">
+                            <div class="drug">Gabapentin 300 mg capsule</div> and <div class="drug">morphine 30 mg immediate release tablet</div>
+                          </div>
+                          <div class="showcode pull-right" title="view technical details">
+                            <i class="fa fa-chevron-left" aria-hidden="true"></i><i class="fa fa-chevron-right" aria-hidden="true"></i>
+                          </div>
+                          <div class="shown-code">
+                            <div class="codecontent">
+                              <div class="api-title">API Call</div>
+                              <table class="table">
+                                <tr>
+                                  <td class="tabledata">Source</td>
+                                  <td class="bolded tabledata">Cloud Connector API</td>
+                                </tr>
+                                <tr>
+                                  <td class="tabledata">Service Name</td>
+                                  <td class="bolded tabledata">ScreenService.Screen</td>
+                                </tr>
+                                <tr>
+                                  <td class="tabledata">Response Time</td>
+                                  <td class="bolded tabledata">35ms</td>
+                                </tr>
+                              </table>
+                              <br />
+                              <div class="api-title">Alert Details</div>
+                              <table class="table">
+                                <tr>
+                                  <td class="tabledata">Alert Type</td>
+                                  <td class="bolded tabledata">Drug-Drug Interaction (DDI)</td>
+                                </tr>
+                                <tr>
+                                  <td class="tabledata">Severity Level</td>
+                                  <td class="bolded tabledata">Severe</td>
+                                </tr>
+                                <tr>
+                                  <td class="tabledata">Visibility</td>
+                                  <td class="bolded tabledata">Interruptive</td>
+                                </tr>
+                              </table>
+                              <br />
+                              <div class="api-title">Why am I seeing this alert?</div>
+                              <div class="reasons">
+                                This alert is visible right now because it is <div class="bolded">Severe</div> and <div class="bolded">Interruptive</div>, and your role is <div class="bolded">Hospitalist</div>.<br />
+                                You would NOT see it if its severity level was <div class="bolded">Moderate or less</div>, or if it had a visibility of <div class="bolded">Passive</div>, or your role was <div class="bolded">Pharmacist</div> or <div class="bolded">Cardiologist</div>.
+                              </div>
+                            </div>
+                          </div>
+                          <div class="screenresult-content">
+                            <p>Gabapentin 300 mg capsule and morphine 30 mg immediate release tablet may interact based on the potential interaction between GABAPENTIN and MORPHINE.</p>
+                            <div class="monos">
+                              <a href="#">professional monograph</a>
+                              <a href="#">consumer monograph</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="duplicate-therapy">
+                      <div class="row">
+                        <div class="col-xs-12 screenresult-fixed">
+                          duplicate therapy screening result 1
+                        </div>
+                      </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="drug-disease">
+                      <div class="row">
+                        <div class="col-xs-12 screenresult-fixed">
+                          drug disease screening result 1
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-12 screenresult-fixed">
+                          drug disease screening result 2
+                        </div>
+                      </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="drug-food">
+                      <div class="row">
+                        <div class="col-xs-12 screenresult-fixed">
+                          drug food screening result 1
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-12 screenresult-fixed">
+                          drug food screening result 2
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-12 screenresult-fixed">
+                          drug food screening result 3
+                        </div>
+                      </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="drug-allergy">
+                      <div class="row">
+                        <div class="col-xs-12 screenresult-fixed">
+                          drug allergy screening result 1
+                        </div>
+                      </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="drug-gene">
+                      <div class="row">
+                        <div class="col-xs-12 screenresult-fixed">
+                          drug gene screening result 1
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-12 screenresult-fixed">
+                          drug gene screening result 2
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <footer class="container-fluid">
+        <h1>footer</h1>
+    </footer>
+
+    <!-- scripts and plugins -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="scripts/moment.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="scripts/bootstrap-datetimepicker.min.js"></script>
+    <script src="scripts/classie.js"></script>
+    <script src="scripts/cbpAnimatedHeader.js"></script>
+    <script src="scripts/wow.min.js"></script>
+    <script src="scripts/snackbar.min.js"></script>
+    <script src="scripts/shCore.js"></script>
+    <script type="text/javascript" src="scripts/shBrushXml.js"></script>
+    <script src="scripts/app.js"></script>
+
+    <script type="text/javascript">
+     SyntaxHighlighter.all()
+    </script>
+
+  </body>
+</html>

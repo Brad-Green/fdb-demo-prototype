@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>FDB demo - Patients</title>
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="css/material.css">
+    <link rel="stylesheet" href="css/snackbar.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link href="css/app.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-inverse navbar-fixed-top navbar-small">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="index.html"><img src="./content/fdb-logo.png" /></a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Joe User <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Sign Out</a></li>
+                  <li><a href="#">Reset Password</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Help</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="navbar-form navbar-right">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="patient name or tag">
+              </div>
+              <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+    </header>
+
+    <div class="container-fluid patients">
+
+      <section class="row patients-top text-center">
+        <div class="container">
+          <div class="col-md-4 text-left">
+            <div class="pagetitle">Patients</div>
+          </div>
+          <div class="col-md-4">
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-default active">all</button>
+              <button type="button" class="btn btn-default">favorites</button>
+              <button type="button" class="btn btn-default">tagged</button>
+            </div>
+          </div>
+          <div class="col-md-4 text-right">
+            <a href="patient-new.html">
+              <button type="button" class="btn btn-success newpatient">+ New Patient</button>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="row patients-list text-center">
+
+        <div class="container patients-row">
+          <!-- patient start -->
+          <div class="col-md-4">
+            <div class="card wow fadeInUp" data-wow-duration=".5s" data-wow-delay="0.0s">
+              <div class="col-xs-4">
+                <img src="content/user-f-1.jpg" class="img-circle"></img>
+              </div>
+              <div class="col-xs-8 card-info">
+                <div class="card-controls">
+                  <i class="fa fa-heart-o heart" aria-hidden="true" id="noclix" data-toggle="tooltip" title="favorite"></i>
+                  <div class="dropdown ellipsis-dropdown" id="noclix">
+                    <button class="btn btn-link btn-xs dropdown-toggle ellipsis-button" type="button" id="noclix" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <i class="fa fa-ellipsis-v ellipsis" id="noclix"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right ellipsis-menu-option">
+                      <li><a href="patient-edit.html" id="noclix">Edit</a></li>
+                      <li><a data-toggle=snackbar class="hide-card" data-content="Patient deleted&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#' class='btn btn-info'>UNDO</a>" data-html-allowed="true" data-timeout="4000" id="noclix">Delete</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-stats">
+                  <h4>Leah Perry</h4>
+                  <p>female  34</p>
+                </div>
+                <div class="card-tags">
+                  <div class="tag">ADDI</div>
+                  <div class="tag">PGX</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- patient end -->
+          <!-- patient start -->
+          <div class="col-md-4">
+            <div class="card wow fadeInUp" data-wow-duration=".5s" data-wow-delay="0.1s">
+              <div class="col-xs-4">
+                <img src="content/user-m-1.jpg" class="img-circle"></img>
+              </div>
+              <div class="col-xs-8 card-info">
+                <div class="card-controls">
+                  <i class="fa fa-heart heart-filled" aria-hidden="true" id="noclix" data-toggle="tooltip" title="favorite"></i>
+                  <div class="dropdown ellipsis-dropdown" id="noclix">
+                    <button class="btn btn-link btn-xs dropdown-toggle ellipsis-button" type="button" id="noclix" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <i class="fa fa-ellipsis-v ellipsis" id="noclix"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right ellipsis-menu-option">
+                      <li><a href="patient-edit.html" id="noclix">Edit</a></li>
+                      <li><a data-toggle=snackbar class="hide-card" data-content="Patient deleted&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#' class='btn btn-info'>UNDO</a>" data-html-allowed="true" data-timeout="4000" id="noclix">Delete</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-stats">
+                  <h4>Kurt Diaz</h4>
+                  <p>male  26</p>
+                </div>
+                <div class="card-tags">
+                  <div class="tag">ADDI</div>
+                  <div class="tag">my demo</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- patient end -->
+          <!-- patient start -->
+          <div class="col-md-4">
+            <div class="card wow fadeInUp" data-wow-duration=".5s" data-wow-delay="0.2s">
+              <div class="col-xs-4">
+                <img src="content/user-f-2.jpg" class="img-circle"></img>
+              </div>
+              <div class="col-xs-8 card-info">
+                <div class="card-controls">
+                  <i class="fa fa-heart-o heart" aria-hidden="true" id="noclix" data-toggle="tooltip" title="favorite"></i>
+                  <div class="dropdown ellipsis-dropdown" id="noclix">
+                    <button class="btn btn-link btn-xs dropdown-toggle ellipsis-button" type="button" id="noclix" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <i class="fa fa-ellipsis-v ellipsis" id="noclix"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right ellipsis-menu-option">
+                      <li><a href="patient-edit.html" id="noclix">Edit</a></li>
+                      <li><a data-toggle=snackbar class="hide-card" data-content="Patient deleted&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#' class='btn btn-info'>UNDO</a>" data-html-allowed="true" data-timeout="4000" id="noclix">Delete</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-stats">
+                  <h4>Annie Huang</h4>
+                  <p>female  38</p>
+                </div>
+                <div class="card-tags">
+                  <div class="tag">my demo</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- patient end -->
+        </div>
+
+        <div class="container patients-row">
+          <!-- patient start -->
+          <div class="col-md-4">
+            <div class="card wow fadeInUp" data-wow-duration=".5s" data-wow-delay="0.0s">
+              <div class="col-xs-4">
+                <img src="content/user-m-2.jpg" class="img-circle"></img>
+              </div>
+              <div class="col-xs-8 card-info">
+                <div class="card-controls">
+                  <i class="fa fa-heart heart-filled" aria-hidden="true" id="noclix" data-toggle="tooltip" title="favorite"></i>
+                  <div class="dropdown ellipsis-dropdown" id="noclix">
+                    <button class="btn btn-link btn-xs dropdown-toggle ellipsis-button" type="button" id="noclix" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <i class="fa fa-ellipsis-v ellipsis" id="noclix"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right ellipsis-menu-option">
+                      <li><a href="patient-edit.html" id="noclix">Edit</a></li>
+                      <li><a data-toggle=snackbar class="hide-card" data-content="Patient deleted&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#' class='btn btn-info'>UNDO</a>" data-html-allowed="true" data-timeout="4000" id="noclix">Delete</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-stats">
+                  <h4>Brendan Gupta</h4>
+                  <p>male  29</p>
+                </div>
+                <div class="card-tags">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- patient end -->
+          <!-- patient start -->
+          <div class="col-md-4">
+            <div class="card wow fadeInUp" data-wow-duration=".5s" data-wow-delay="0.1s">
+              <div class="col-xs-4">
+                <img src="content/user-f-3.jpg" class="img-circle"></img>
+              </div>
+              <div class="col-xs-8 card-info">
+                <div class="card-controls">
+                  <i class="fa fa-heart-o heart" aria-hidden="true" id="noclix" data-toggle="tooltip" title="favorite"></i>
+                  <div class="dropdown ellipsis-dropdown" id="noclix">
+                    <button class="btn btn-link btn-xs dropdown-toggle ellipsis-button" type="button" id="noclix" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <i class="fa fa-ellipsis-v ellipsis" id="noclix"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right ellipsis-menu-option">
+                      <li><a href="patient-edit.html" id="noclix">Edit</a></li>
+                      <li><a data-toggle=snackbar class="hide-card" data-content="Patient deleted&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#' class='btn btn-info'>UNDO</a>" data-html-allowed="true" data-timeout="4000" id="noclix">Delete</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-stats">
+                  <h4>Roberta Freeman</h4>
+                  <p>female  41</p>
+                </div>
+                <div class="card-tags">
+                  <div class="tag">sales</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- patient end -->
+          <!-- patient start -->
+          <div class="col-md-4">
+            <div class="card wow fadeInUp" data-wow-duration=".5s" data-wow-delay="0.2s">
+              <div class="col-xs-4">
+                <img src="content/user-m-3.jpg" class="img-circle"></img>
+              </div>
+              <div class="col-xs-8 card-info">
+                <div class="card-controls">
+                  <i class="fa fa-heart-o heart" aria-hidden="true" id="noclix" data-toggle="tooltip" title="favorite"></i>
+                  <div class="dropdown ellipsis-dropdown" id="noclix">
+                    <button class="btn btn-link btn-xs dropdown-toggle ellipsis-button" type="button" id="noclix" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <i class="fa fa-ellipsis-v ellipsis" id="noclix"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right ellipsis-menu-option">
+                      <li><a href="patient-edit.html" id="noclix">Edit</a></li>
+                      <li><a data-toggle=snackbar class="hide-card" data-content="Patient deleted&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#' class='btn btn-info'>UNDO</a>" data-html-allowed="true" data-timeout="4000" id="noclix">Delete</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-stats">
+                  <h4>Carl Chen</h4>
+                  <p>male  31</p>
+                </div>
+                <div class="card-tags">
+                  <div class="tag">hisk risk meds</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- patient end -->
+        </div>
+
+        <div class="container patients-row">
+          <!-- patient start -->
+          <div class="col-md-4">
+            <div class="card wow fadeInUp" data-wow-duration=".5s" data-wow-delay="0.0s">
+              <div class="col-xs-4">
+                <img src="content/user-f-4.jpg" class="img-circle"></img>
+              </div>
+              <div class="col-xs-8 card-info">
+                <div class="card-controls">
+                  <i class="fa fa-heart-o heart" aria-hidden="true" id="noclix" data-toggle="tooltip" title="favorite"></i>
+                  <div class="dropdown ellipsis-dropdown" id="noclix">
+                    <button class="btn btn-link btn-xs dropdown-toggle ellipsis-button" type="button" id="noclix" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <i class="fa fa-ellipsis-v ellipsis" id="noclix"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right ellipsis-menu-option">
+                      <li><a href="patient-edit.html" id="noclix">Edit</a></li>
+                      <li><a data-toggle=snackbar class="hide-card" data-content="Patient deleted&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#' class='btn btn-info'>UNDO</a>" data-html-allowed="true" data-timeout="4000" id="noclix">Delete</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-stats">
+                  <h4>Sonia Thompson</h4>
+                  <p>female  36</p>
+                </div>
+                <div class="card-tags">
+                  <div class="tag">PGX</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- patient end -->
+          <!-- patient start -->
+          <div class="col-md-4">
+            <div class="card wow fadeInUp" data-wow-duration=".5s" data-wow-delay="0.1s">
+              <div class="col-xs-4">
+                <img src="content/user-m-4.jpg" class="img-circle"></img>
+              </div>
+              <div class="col-xs-8 card-info">
+                <div class="card-controls">
+                  <i class="fa fa-heart-o heart" aria-hidden="true" id="noclix" data-toggle="tooltip" title="favorite"></i>
+                  <div class="dropdown ellipsis-dropdown" id="noclix">
+                    <button class="btn btn-link btn-xs dropdown-toggle ellipsis-button" type="button" id="noclix" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <i class="fa fa-ellipsis-v ellipsis" id="noclix"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right ellipsis-menu-option">
+                      <li><a href="patient-edit.html" id="noclix">Edit</a></li>
+                      <li><a data-toggle=snackbar class="hide-card" data-content="Patient deleted&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#' class='btn btn-info'>UNDO</a>" data-html-allowed="true" data-timeout="4000" id="noclix">Delete</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-stats">
+                  <h4>Timothy Parker</h4>
+                  <p>male  56</p>
+                </div>
+                <div class="card-tags">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- patient end -->
+          <!-- patient start -->
+          <div class="col-md-4">
+            <div class="card wow fadeInUp" data-wow-duration=".5s" data-wow-delay="0.2s">
+              <div class="col-xs-4">
+                <img src="content/user-f-5.jpg" class="img-circle"></img>
+              </div>
+              <div class="col-xs-8 card-info">
+                <div class="card-controls">
+                  <i class="fa fa-heart heart-filled" aria-hidden="true" id="noclix" data-toggle="tooltip" title="favorite"></i>
+                  <div class="dropdown ellipsis-dropdown" id="noclix">
+                    <button class="btn btn-link btn-xs dropdown-toggle ellipsis-button" type="button" id="noclix" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <i class="fa fa-ellipsis-v ellipsis" id="noclix"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right ellipsis-menu-option">
+                      <li><a href="patient-edit.html" id="noclix">Edit</a></li>
+                      <li><a data-toggle=snackbar class="hide-card" data-content="Patient deleted&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#' class='btn btn-info'>UNDO</a>" data-html-allowed="true" data-timeout="4000" id="noclix">Delete</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-stats">
+                  <h4>Hilda Phillips</h4>
+                  <p>female  37</p>
+                </div>
+                <div class="card-tags">
+                  <div class="tag">ADDI</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- patient end -->
+        </div>
+
+        <div class="container patients-row">
+          <!-- patient start -->
+          <div class="col-md-4">
+            <div class="card wow fadeInUp" data-wow-duration=".5s" data-wow-delay="0.0s">
+              <div class="col-xs-4">
+                <img src="content/user-m-5.jpg" class="img-circle"></img>
+              </div>
+              <div class="col-xs-8 card-info">
+                <div class="card-controls">
+                  <i class="fa fa-heart-o heart" aria-hidden="true" id="noclix" data-toggle="tooltip" title="favorite"></i>
+                  <div class="dropdown ellipsis-dropdown" id="noclix">
+                    <button class="btn btn-link btn-xs dropdown-toggle ellipsis-button" type="button" id="noclix" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <i class="fa fa-ellipsis-v ellipsis" id="noclix"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right ellipsis-menu-option">
+                      <li><a href="patient-edit.html" id="noclix">Edit</a></li>
+                      <li><a data-toggle=snackbar class="hide-card" data-content="Patient deleted&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#' class='btn btn-info'>UNDO</a>" data-html-allowed="true" data-timeout="4000" id="noclix">Delete</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-stats">
+                  <h4>Lance Fletcher</h4>
+                  <p>male  22</p>
+                </div>
+                <div class="card-tags">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- patient end -->
+          <!-- patient start -->
+          <div class="col-md-4">
+            <div class="card wow fadeInUp" data-wow-duration=".5s" data-wow-delay="0.1s">
+              <div class="col-xs-4">
+                <img src="content/user-f-6.jpg" class="img-circle"></img>
+              </div>
+              <div class="col-xs-8 card-info">
+                <div class="card-controls">
+                  <i class="fa fa-heart-o heart" aria-hidden="true" id="noclix" data-toggle="tooltip" title="favorite"></i>
+                  <div class="dropdown ellipsis-dropdown" id="noclix">
+                    <button class="btn btn-link btn-xs dropdown-toggle ellipsis-button" type="button" id="noclix" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <i class="fa fa-ellipsis-v ellipsis" id="noclix"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right ellipsis-menu-option">
+                      <li><a href="patient-edit.html" id="noclix">Edit</a></li>
+                      <li><a data-toggle=snackbar class="hide-card" data-content="Patient deleted&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#' class='btn btn-info'>UNDO</a>" data-html-allowed="true" data-timeout="4000" id="noclix">Delete</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-stats">
+                  <h4>Noelle Gutierrez</h4>
+                  <p>female  30</p>
+                </div>
+                <div class="card-tags">
+                  <div class="tag">food allergy</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- patient end -->
+          <!-- patient start -->
+          <div class="col-md-4">
+            <div class="card wow fadeInUp" data-wow-duration=".5s" data-wow-delay="0.2s">
+              <div class="col-xs-4">
+                <img src="content/user-m-6.jpg" class="img-circle"></img>
+              </div>
+              <div class="col-xs-8 card-info">
+                <div class="card-controls">
+                  <i class="fa fa-heart-o heart" aria-hidden="true" id="noclix" data-toggle="tooltip" title="favorite"></i>
+                  <div class="dropdown ellipsis-dropdown" id="noclix">
+                    <button class="btn btn-link btn-xs dropdown-toggle ellipsis-button" type="button" id="noclix" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <i class="fa fa-ellipsis-v ellipsis" id="noclix"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right ellipsis-menu-option">
+                      <li><a href="patient-edit.html" id="noclix">Edit</a></li>
+                      <li><a data-toggle=snackbar class="hide-card" data-content="Patient deleted&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#' class='btn btn-info'>UNDO</a>" data-html-allowed="true" data-timeout="4000" id="noclix">Delete</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-stats">
+                  <h4>Justin Thomas</h4>
+                  <p>male  38</p>
+                </div>
+                <div class="card-tags">
+                  <div class="tag">PGX</div>
+                  <div class="tag">my demo</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- patient end -->
+        </div>
+
+        <div class="container patients-row">
+          <!-- patient start -->
+          <div class="col-md-4">
+            <div class="card wow fadeInUp" data-wow-duration=".5s" data-wow-delay="0.0s">
+              <div class="col-xs-4">
+                <img src="content/user-f-1.jpg" class="img-circle"></img>
+              </div>
+              <div class="col-xs-8 card-info">
+                <div class="card-controls">
+                  <i class="fa fa-heart heart-filled" aria-hidden="true" id="noclix" data-toggle="tooltip" title="favorite"></i>
+                  <div class="dropdown ellipsis-dropdown" id="noclix">
+                    <button class="btn btn-link btn-xs dropdown-toggle ellipsis-button" type="button" id="noclix" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <i class="fa fa-ellipsis-v ellipsis" id="noclix"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right ellipsis-menu-option">
+                      <li><a href="patient-edit.html" id="noclix">Edit</a></li>
+                      <li><a data-toggle=snackbar class="hide-card" data-content="Patient deleted&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#' class='btn btn-info'>UNDO</a>" data-html-allowed="true" data-timeout="4000" id="noclix">Delete</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-stats">
+                  <h4>Leah Perry</h4>
+                  <p>female  34</p>
+                </div>
+                <div class="card-tags">
+                  <div class="tag">ADDI</div>
+                  <div class="tag">PGX</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- patient end -->
+          <!-- patient start -->
+          <div class="col-md-4">
+            <div class="card wow fadeInUp" data-wow-duration=".5s" data-wow-delay="0.1s">
+              <div class="col-xs-4">
+                <img src="content/user-m-1.jpg" class="img-circle"></img>
+              </div>
+              <div class="col-xs-8 card-info">
+                <div class="card-controls">
+                  <i class="fa fa-heart-o heart" aria-hidden="true" id="noclix" data-toggle="tooltip" title="favorite"></i>
+                  <div class="dropdown ellipsis-dropdown" id="noclix">
+                    <button class="btn btn-link btn-xs dropdown-toggle ellipsis-button" type="button" id="noclix" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <i class="fa fa-ellipsis-v ellipsis" id="noclix"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right ellipsis-menu-option">
+                      <li><a href="patient-edit.html" id="noclix">Edit</a></li>
+                      <li><a data-toggle=snackbar class="hide-card" data-content="Patient deleted&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#' class='btn btn-info'>UNDO</a>" data-html-allowed="true" data-timeout="4000" id="noclix">Delete</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-stats">
+                  <h4>Kurt Diaz</h4>
+                  <p>male  26</p>
+                </div>
+                <div class="card-tags">
+                  <div class="tag">ADDI</div>
+                  <div class="tag">my demo</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- patient end -->
+          <!-- patient start -->
+          <div class="col-md-4">
+            <div class="card wow fadeInUp" data-wow-duration=".5s" data-wow-delay="0.2s">
+              <div class="col-xs-4">
+                <img src="content/user-f-2.jpg" class="img-circle"></img>
+              </div>
+              <div class="col-xs-8 card-info">
+                <div class="card-controls">
+                  <i class="fa fa-heart-o heart" aria-hidden="true" id="noclix" data-toggle="tooltip" title="favorite"></i>
+                  <div class="dropdown ellipsis-dropdown" id="noclix">
+                    <button class="btn btn-link btn-xs dropdown-toggle ellipsis-button" type="button" id="noclix" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <i class="fa fa-ellipsis-v ellipsis" id="noclix"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right ellipsis-menu-option">
+                      <li><a href="patient-edit.html" id="noclix">Edit</a></li>
+                      <li><a data-toggle=snackbar class="hide-card" data-content="Patient deleted&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#' class='btn btn-info'>UNDO</a>" data-html-allowed="true" data-timeout="4000" id="noclix">Delete</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-stats">
+                  <h4>Annie Huang</h4>
+                  <p>female  38</p>
+                </div>
+                <div class="card-tags">
+                  <div class="tag">my demo</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- patient end -->
+        </div>
+
+        <div class="container patients-row">
+          <!-- patient start -->
+          <div class="col-md-4">
+            <div class="card wow fadeInUp" data-wow-duration=".5s" data-wow-delay="0.0s">
+              <div class="col-xs-4">
+                <img src="content/user-m-2.jpg" class="img-circle"></img>
+              </div>
+              <div class="col-xs-8 card-info">
+                <div class="card-controls">
+                  <i class="fa fa-heart-o heart" aria-hidden="true" id="noclix" data-toggle="tooltip" title="favorite"></i>
+                  <div class="dropdown ellipsis-dropdown" id="noclix">
+                    <button class="btn btn-link btn-xs dropdown-toggle ellipsis-button" type="button" id="noclix" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <i class="fa fa-ellipsis-v ellipsis" id="noclix"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right ellipsis-menu-option">
+                      <li><a href="patient-edit.html" id="noclix">Edit</a></li>
+                      <li><a data-toggle=snackbar class="hide-card" data-content="Patient deleted&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#' class='btn btn-info'>UNDO</a>" data-html-allowed="true" data-timeout="4000" id="noclix">Delete</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-stats">
+                  <h4>Brendan Gupta</h4>
+                  <p>male  29</p>
+                </div>
+                <div class="card-tags">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- patient end -->
+          <!-- patient start -->
+          <div class="col-md-4">
+            <div class="card wow fadeInUp" data-wow-duration=".5s" data-wow-delay="0.1s">
+              <div class="col-xs-4">
+                <img src="content/user-f-3.jpg" class="img-circle"></img>
+              </div>
+              <div class="col-xs-8 card-info">
+                <div class="card-controls">
+                  <i class="fa fa-heart-o heart" aria-hidden="true" id="noclix" data-toggle="tooltip" title="favorite"></i>
+                  <div class="dropdown ellipsis-dropdown" id="noclix">
+                    <button class="btn btn-link btn-xs dropdown-toggle ellipsis-button" type="button" id="noclix" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <i class="fa fa-ellipsis-v ellipsis" id="noclix"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right ellipsis-menu-option">
+                      <li><a href="patient-edit.html" id="noclix">Edit</a></li>
+                      <li><a data-toggle=snackbar class="hide-card" data-content="Patient deleted&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#' class='btn btn-info'>UNDO</a>" data-html-allowed="true" data-timeout="4000" id="noclix">Delete</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-stats">
+                  <h4>Roberta Freeman</h4>
+                  <p>female  41</p>
+                </div>
+                <div class="card-tags">
+                  <div class="tag">sales</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- patient end -->
+          <!-- patient start -->
+          <div class="col-md-4">
+            <div class="card wow fadeInUp" data-wow-duration=".5s" data-wow-delay="0.2s">
+              <div class="col-xs-4">
+                <img src="content/user-m-3.jpg" class="img-circle"></img>
+              </div>
+              <div class="col-xs-8 card-info">
+                <div class="card-controls">
+                  <i class="fa fa-heart-o heart" aria-hidden="true" id="noclix" data-toggle="tooltip" title="favorite"></i>
+                  <div class="dropdown ellipsis-dropdown" id="noclix">
+                    <button class="btn btn-link btn-xs dropdown-toggle ellipsis-button" type="button" id="noclix" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <i class="fa fa-ellipsis-v ellipsis" id="noclix"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right ellipsis-menu-option">
+                      <li><a href="patient-edit.html" id="noclix">Edit</a></li>
+                      <li><a data-toggle=snackbar class="hide-card" data-content="Patient deleted&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#' class='btn btn-info'>UNDO</a>" data-html-allowed="true" data-timeout="4000" id="noclix">Delete</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-stats">
+                  <h4>Carl Chen</h4>
+                  <p>male  31</p>
+                </div>
+                <div class="card-tags">
+                  <div class="tag">hisk risk meds</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- patient end -->
+        </div>
+
+        <div class="container patients-row">
+          <!-- patient start -->
+          <div class="col-md-4">
+            <div class="card wow fadeInUp" data-wow-duration=".5s" data-wow-delay="0.0s">
+              <div class="col-xs-4">
+                <img src="content/user-f-4.jpg" class="img-circle"></img>
+              </div>
+              <div class="col-xs-8 card-info">
+                <div class="card-controls">
+                  <i class="fa fa-heart-o heart" aria-hidden="true" id="noclix" data-toggle="tooltip" title="favorite"></i>
+                  <div class="dropdown ellipsis-dropdown" id="noclix">
+                    <button class="btn btn-link btn-xs dropdown-toggle ellipsis-button" type="button" id="noclix" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <i class="fa fa-ellipsis-v ellipsis" id="noclix"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right ellipsis-menu-option">
+                      <li><a href="patient-edit.html" id="noclix">Edit</a></li>
+                      <li><a data-toggle=snackbar class="hide-card" data-content="Patient deleted&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#' class='btn btn-info'>UNDO</a>" data-html-allowed="true" data-timeout="4000" id="noclix">Delete</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-stats">
+                  <h4>Sonia Thompson</h4>
+                  <p>female  36</p>
+                </div>
+                <div class="card-tags">
+                  <div class="tag">PGX</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- patient end -->
+          <!-- patient start -->
+          <div class="col-md-4">
+            <div class="card wow fadeInUp" data-wow-duration=".5s" data-wow-delay="0.1s">
+              <div class="col-xs-4">
+                <img src="content/user-m-4.jpg" class="img-circle"></img>
+              </div>
+              <div class="col-xs-8 card-info">
+                <div class="card-controls">
+                  <i class="fa fa-heart-o heart" aria-hidden="true" id="noclix" data-toggle="tooltip" title="favorite"></i>
+                  <div class="dropdown ellipsis-dropdown" id="noclix">
+                    <button class="btn btn-link btn-xs dropdown-toggle ellipsis-button" type="button" id="noclix" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <i class="fa fa-ellipsis-v ellipsis" id="noclix"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right ellipsis-menu-option">
+                      <li><a href="patient-edit.html" id="noclix">Edit</a></li>
+                      <li><a data-toggle=snackbar class="hide-card" data-content="Patient deleted&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#' class='btn btn-info'>UNDO</a>" data-html-allowed="true" data-timeout="4000" id="noclix">Delete</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-stats">
+                  <h4>Timothy Parker</h4>
+                  <p>male  56</p>
+                </div>
+                <div class="card-tags">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- patient end -->
+          <!-- patient start -->
+          <div class="col-md-4">
+            <div class="card wow fadeInUp" data-wow-duration=".5s" data-wow-delay="0.2s">
+              <div class="col-xs-4">
+                <img src="content/user-f-5.jpg" class="img-circle"></img>
+              </div>
+              <div class="col-xs-8 card-info">
+                <div class="card-controls">
+                  <i class="fa fa-heart heart-filled" aria-hidden="true" id="noclix" data-toggle="tooltip" title="favorite"></i>
+                  <div class="dropdown ellipsis-dropdown" id="noclix">
+                    <button class="btn btn-link btn-xs dropdown-toggle ellipsis-button" type="button" id="noclix" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <i class="fa fa-ellipsis-v ellipsis" id="noclix"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right ellipsis-menu-option">
+                      <li><a href="patient-edit.html" id="noclix">Edit</a></li>
+                      <li><a data-toggle=snackbar class="hide-card" data-content="Patient deleted&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#' class='btn btn-info'>UNDO</a>" data-html-allowed="true" data-timeout="4000" id="noclix">Delete</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-stats">
+                  <h4>Hilda Phillips</h4>
+                  <p>female  37</p>
+                </div>
+                <div class="card-tags">
+                  <div class="tag">ADDI</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- patient end -->
+        </div>
+
+        <div class="container patients-row">
+          <!-- patient start -->
+          <div class="col-md-4">
+            <div class="card wow fadeInUp" data-wow-duration=".5s" data-wow-delay="0.0s">
+              <div class="col-xs-4">
+                <img src="content/user-m-5.jpg" class="img-circle"></img>
+              </div>
+              <div class="col-xs-8 card-info">
+                <div class="card-controls">
+                  <i class="fa fa-heart heart-filled" aria-hidden="true" id="noclix" data-toggle="tooltip" title="favorite"></i>
+                  <div class="dropdown ellipsis-dropdown" id="noclix">
+                    <button class="btn btn-link btn-xs dropdown-toggle ellipsis-button" type="button" id="noclix" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <i class="fa fa-ellipsis-v ellipsis" id="noclix"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right ellipsis-menu-option">
+                      <li><a href="patient-edit.html" id="noclix">Edit</a></li>
+                      <li><a data-toggle=snackbar class="hide-card" data-content="Patient deleted&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#' class='btn btn-info'>UNDO</a>" data-html-allowed="true" data-timeout="4000" id="noclix">Delete</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-stats">
+                  <h4>Lance Fletcher</h4>
+                  <p>male  22</p>
+                </div>
+                <div class="card-tags">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- patient end -->
+          <!-- patient start -->
+          <div class="col-md-4">
+            <div class="card wow fadeInUp" data-wow-duration=".5s" data-wow-delay="0.1s">
+              <div class="col-xs-4">
+                <img src="content/user-f-6.jpg" class="img-circle"></img>
+              </div>
+              <div class="col-xs-8 card-info">
+                <div class="card-controls">
+                  <i class="fa fa-heart-o heart" aria-hidden="true" id="noclix" data-toggle="tooltip" title="favorite"></i>
+                  <div class="dropdown ellipsis-dropdown" id="noclix">
+                    <button class="btn btn-link btn-xs dropdown-toggle ellipsis-button" type="button" id="noclix" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <i class="fa fa-ellipsis-v ellipsis" id="noclix"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right ellipsis-menu-option">
+                      <li><a href="patient-edit.html" id="noclix">Edit</a></li>
+                      <li><a data-toggle=snackbar class="hide-card" data-content="Patient deleted&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#' class='btn btn-info'>UNDO</a>" data-html-allowed="true" data-timeout="4000" id="noclix">Delete</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-stats">
+                  <h4>Noelle Gutierrez</h4>
+                  <p>female  30</p>
+                </div>
+                <div class="card-tags">
+                  <div class="tag">food allergy</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- patient end -->
+        </div>
+
+      </section>
+    </div>
+
+    <footer class="container-fluid">
+        <h1>footer</h1>
+    </footer>
+
+    <!-- scripts and plugins -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="scripts/classie.js"></script>
+    <script src="scripts/cbpAnimatedHeader.js"></script>
+    <script src="scripts/wow.min.js"></script>
+    <script src="scripts/snackbar.min.js"></script>
+    <script src="scripts/app.js"></script>
+
+  </body>
+</html>
